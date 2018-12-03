@@ -9,24 +9,23 @@ function wp (percentage) {
     return Math.round(value);
 }
 
-const slideHeight = viewportHeight * 0.6;
+const slideHeight = viewportHeight * 0.2;
 const slideWidth = wp(75);
 const itemHorizontalMargin = wp(2);
 
 export const sliderWidth = viewportWidth;
-export const itemWidth = slideWidth * 0.85 + itemHorizontalMargin * 0.1;
+export const itemWidth = viewportWidth;
 
-const entryBorderRadius = 8;
+const entryBorderRadius = 0;
 
 export default StyleSheet.create({
     slideInnerContainer: {
         width: itemWidth,
         height: slideHeight,
-        paddingHorizontal: itemHorizontalMargin,
+        paddingHorizontal: 0,
         paddingBottom: 18 // needed for shadow
     },
     shadow: {
-        position: 'absolute',
         top: 0,
         left: itemHorizontalMargin,
         right: itemHorizontalMargin,
@@ -35,7 +34,6 @@ export default StyleSheet.create({
         shadowOpacity: 0.25,
         shadowOffset: { width: 0, height: 10 },
         shadowRadius: 10,
-        borderRadius: entryBorderRadius
     },
     imageContainer: {
         flex: 1,
@@ -71,12 +69,12 @@ export default StyleSheet.create({
         paddingTop: 20 - entryBorderRadius,
         paddingBottom: 20,
         paddingHorizontal: 16,
-        backgroundColor: '#001638',
+        backgroundColor: colors.black,
         borderBottomLeftRadius: entryBorderRadius,
         borderBottomRightRadius: entryBorderRadius
     },
     textContainerEven: {
-        backgroundColor: '#001638'
+        backgroundColor: colors.black
     },
     title: {
         color: 'white',
@@ -88,7 +86,7 @@ export default StyleSheet.create({
         color: 'white'
     },
     subtitle: {
-        marginTop: 6,
+        marginTop: 0,
         color: colors.gray,
         fontSize: 12,
         fontStyle: 'italic'

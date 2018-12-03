@@ -28,8 +28,8 @@ class Login extends Component {
                         onChangeText={(password) => this.setState({ password: password })}
                         value={this.state.password} placeholder="Mật khẩu" />
                 </View>
-                <View style={{ flex: 1, marginTop: 8, justifyContent: 'center' }}>
-                    <TouchableOpacity style={{ backgroundColor: '#ab2c35', justifyContent: 'center', alignItems: 'center', padding: 7, borderRadius: 17, marginLeft: 30, marginRight: 30 }}>
+                <View style={{ flex: 1, marginTop: 10, justifyContent: 'center' }}>
+                    <TouchableOpacity style={{ backgroundColor: '#ab2c35', justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 17, marginLeft: 30, marginRight: 30 }}>
                         <Text style={{ color: 'white' }}>Đăng nhập</Text>
                     </TouchableOpacity>
                 </View>
@@ -39,7 +39,7 @@ class Login extends Component {
                 <View style={{ flex: 0.5 }}>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center' }}>
-                    <TouchableOpacity style={{ backgroundColor: '#2d489f', justifyContent: 'center', alignItems: 'center', padding: 7, borderRadius: 17, marginLeft: 30, marginRight: 30 }}>
+                    <TouchableOpacity style={{ backgroundColor: '#2d489f', justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 17, marginLeft: 30, marginRight: 30 }}>
                         <Text style={{ color: 'white' }}>Đăng nhập bằng Facebook</Text>
                     </TouchableOpacity>
                 </View>

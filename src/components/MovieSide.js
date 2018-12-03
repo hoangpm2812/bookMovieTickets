@@ -7,7 +7,7 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, View, ScrollView, Text, StatusBar, SafeAreaView } from 'react-native';
+import { Platform, View, ScrollView, Text, StatusBar, SafeAreaView, TouchableOpacity } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { sliderWidth, itemWidth } from '../../src/styles/SliderEntries.style';
 import SliderEntry from '../../src/components/SliderEntry';
@@ -24,7 +24,10 @@ export default class MovieSlide extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      slider1ActiveSlide: SLIDER_1_FIRST_ITEM
+      slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+      dangChieuColor: 'black',
+      dacBietColor: 'gray',
+      sapChieuColor: 'gray',
     };
   }
 
@@ -58,25 +61,41 @@ export default class MovieSlide extends Component {
   render() {
     const { slider1ActiveSlide } = this.state;
     return (
-      <View style={styles.exampleContainer}>
-        <Carousel
-          ref={c => this._slider1Ref = c}
-          data={ENTRIES1}
-          renderItem={this._renderItemWithParallax}
-          sliderWidth={sliderWidth}
-          itemWidth={itemWidth}
-          hasParallaxImages={true}
-          firstItem={SLIDER_1_FIRST_ITEM}
-          inactiveSlideScale={0.94}
-          inactiveSlideOpacity={0.7}
-          // inactiveSlideShift={20}
-          containerCustomStyle={styles.slider}
-          contentContainerCustomStyle={styles.sliderContentContainer}
-          loop={true}
-          loopClonesPerSide={2}
-          autoplay={false}
-          onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index })}
-        />
+      <View style={{flex: 1}}>
+        <View style={{flexDirection: 'row', paddingVertical: 10}}>
+          <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}} 
+              onPress={()=>{this.setState({dangChieuColor: 'black', dacBietColor: 'gray', sapChieuColor: 'gray'})}}>
+            <Text style={[styles.textHeader, {color: this.state.dangChieuColor}]}>Đang chiếu</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
+              onPress={()=>{this.setState({dangChieuColor: 'gray', dacBietColor: 'black', sapChieuColor: 'gray'})}}>
+            <Text style={[styles.textHeader, {color: this.state.dacBietColor}]}>Đặc biệt</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
+              onPress={()=>{this.setState({dangChieuColor: 'gray', dacBietColor: 'gray', sapChieuColor: 'black'})}}>
+            <Text style={[styles.textHeader, {color: this.state.sapChieuColor}]}>Sắp chiếu</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={[styles.exampleContainer, {backgroundColor: '#0c0e23'}]}>
+          <Carousel
+            ref={c => this._slider1Ref = c}
+            data={ENTRIES1}
+            renderItem={this._renderItemWithParallax}
+            sliderWidth={sliderWidth}
+            itemWidth={itemWidth}
+            hasParallaxImages={true}
+            firstItem={SLIDER_1_FIRST_ITEM}
+            inactiveSlideScale={0.94}
+            inactiveSlideOpacity={0.7}
+            // inactiveSlideShift={20}
+            containerCustomStyle={styles.slider}
+            contentContainerCustomStyle={styles.sliderContentContainer}
+            loop={true}
+            loopClonesPerSide={2}
+            autoplay={false}
+            onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index })}
+          />
+        </View>
       </View>
     );
   }

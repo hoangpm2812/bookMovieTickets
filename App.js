@@ -26,7 +26,7 @@ export default class App extends Component {
           {/* <Scene key='splash' component={SplashContainer} title='Splash' hideNavBar={true} /> */}
           <Scene key='home' component={HomeContainer} title='Home' initial hideNavBar={true} />
           <Scene key='movieDetails' component={MovieDetailContainer} title='Phim' />
-          <Scene key='login' component={LoginContainer} initial title='Đăng nhập' />
+          <Scene key='login' component={LoginContainer} title='Đăng nhập' />
         </Stack>
       </Router>
     );
