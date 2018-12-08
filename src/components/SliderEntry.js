@@ -73,7 +73,8 @@ export default class SliderEntry extends Component {
                         </Text>
                         </View>
                         <View style={{flex: 2, justifyContent: 'center', alignItems: 'flex-end'}}>
-                            <TouchableOpacity style={{backgroundColor: '#dcad63', paddingVertical: 5, paddingHorizontal: 10, borderRadius: 10}}>
+                            <TouchableOpacity style={{backgroundColor: '#dcad63', paddingVertical: 5, paddingHorizontal: 10, borderRadius: 10}}
+                                    onPress={() => {Actions.movieTime({title: title.toUpperCase()})}}>
                                 <Text style={{color: 'black'}}>Đặt vé</Text>
                             </TouchableOpacity>
                         </View>
