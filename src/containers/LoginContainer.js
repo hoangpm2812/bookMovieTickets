@@ -10,7 +10,7 @@ export default class LoginContainer extends Component {
     render() {
         return (
             <View style={{flex:1}}>
-                <Login />
+                <Login parent={this.props.parent} />
             </View>
             
         )

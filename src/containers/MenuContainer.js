@@ -12,21 +12,16 @@ import MovieSlide from '../components/MovieSide';
 import NewsSlide from '../components/NewsSlide';
 
 
-export default class HomeContainer extends Component {
+export default class MenuContainer extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <ScrollView style={{backgroundColor: '#0c0e23'}}>
-        <View style={{flex: 4, backgroundColor: '#0c0e23'}}>
-          <NewsSlide />
-        </View>
-        <View style={{flex: 10, backgroundColor: 'white'}}>
-          <MovieSlide />
-        </View>
-      </ScrollView>
+      <View style={{flex: 1}}>
+      
+      </View>
     );
   }
 }

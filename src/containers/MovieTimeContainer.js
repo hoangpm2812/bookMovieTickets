@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
-import MovieDetails from '../components/MovieDetails'
+import MovieDetails from '../components/MovieDetails';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Actions } from 'react-native-router-flux';
 
 class MovieTimeContainer extends Component {
   constructor(props) {
@@ -18,14 +20,15 @@ class MovieTimeContainer extends Component {
       },
       textStyleNext2day: {
         color: 'white', fontWeight: 'normal'
-      }
+      },
+      activity: false
     }
   }
 
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ flex: 2, backgroundColor: '#001638' }}>
+        <View style={{ height: 90, backgroundColor: '#001638' }}>
           <ScrollView horizontal={true}>
             <TouchableOpacity style={{ margin: 10, alignItems: 'center' }}
               onPress={() => this.setState({
@@ -102,7 +105,70 @@ class MovieTimeContainer extends Component {
           </ScrollView>
         </View>
         <View style={{ flex: 13, backgroundColor: 'white' }}>
-            
+          <ScrollView>
+            <View style={{ paddingVertical: 10, marginHorizontal: 10, borderBottomColor: 'gray', borderBottomWidth: 1 }}>
+              <Text style={{ fontWeight: 'bold', paddingBottom: 10, fontSize: 16 }}>Rạp Vincom Long Biên</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5 }}>
+                <Icon name="movie" size={30} color="#001638" />
+                <Text style={{ fontWeight: 'bold', paddingLeft: 5 }}>
+                  2D Phụ Đề Việt
+                </Text>
+              </View>
+              <View style={{ flexDirection: 'row', paddingLeft: 15 }}>
+                <TouchableOpacity
+                  onPress={() => { Actions.bookChairs({ title: "Rạp Vincom Long Biên" }) }}
+                  style={{ backgroundColor: '#edece7', marginRight: 10, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 3, borderColor: 'gray', borderWidth: 1 }}>
+                  <Text style={{ fontWeight: 'bold' }}>09:50</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => { Actions.bookChairs({ title: "Rạp Vincom Long Biên" }) }}
+                  style={{ backgroundColor: '#edece7', marginRight: 10, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 3, borderColor: 'gray', borderWidth: 1 }}>
+                  <Text style={{ fontWeight: 'bold' }}>12:40</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => { Actions.bookChairs({ title: "Rạp Vincom Long Biên" }) }}
+                  style={{ backgroundColor: '#edece7', marginRight: 10, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 3, borderColor: 'gray', borderWidth: 1 }}>
+                  <Text style={{ fontWeight: 'bold' }}>14:10</Text>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5 }}>
+                <Icon name="movie" size={30} color="#001638" />
+                <Text style={{ fontWeight: 'bold', paddingLeft: 5 }}>
+                  3D Phụ Đề Việt
+                </Text>
+              </View>
+              <View style={{ flexDirection: 'row', paddingLeft: 15 }}>
+                <TouchableOpacity
+                  onPress={() => { Actions.bookChairs({ title: "Rạp Vincom Long Biên" }) }}
+                  style={{ backgroundColor: '#edece7', marginRight: 10, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 3, borderColor: 'gray', borderWidth: 1 }}>
+                  <Text style={{ fontWeight: 'bold' }}>08:50</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <View style={{ paddingVertical: 10, paddingHorizontal: 10 }}>
+              <Text style={{ fontWeight: 'bold', paddingBottom: 10, fontSize: 16 }}>Rạp Vincom Bà Triệu</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 5 }}>
+                <Icon name="movie" size={30} color="#001638" />
+                <Text style={{ fontWeight: 'bold', paddingLeft: 5 }}>
+                  2D Phụ Đề Việt
+                </Text>
+              </View>
+              <View style={{ flexDirection: 'row', paddingLeft: 15 }}>
+                <TouchableOpacity
+                  onPress={() => { Actions.bookChairs({ title: "Rạp Vincom Bà Triệu" }) }}
+                  style={{ backgroundColor: '#edece7', marginRight: 10, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 3, borderColor: 'gray', borderWidth: 1 }}>
+                  <Text style={{ fontWeight: 'bold' }}>11:00</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => { Actions.bookChairs({ title: "Rạp Vincom Bà Triệu" }) }}
+                  style={{ backgroundColor: '#edece7', marginRight: 10, paddingVertical: 6, paddingHorizontal: 16, borderRadius: 3, borderColor: 'gray', borderWidth: 1 }}>
+                  <Text style={{ fontWeight: 'bold' }}>16:20</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
         </View>
       </View>
 

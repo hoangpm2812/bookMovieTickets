@@ -29,7 +29,11 @@ class Login extends Component {
                         value={this.state.password} placeholder="Mật khẩu" />
                 </View>
                 <View style={{ flex: 1, marginTop: 10, justifyContent: 'center' }}>
-                    <TouchableOpacity style={{ backgroundColor: '#ab2c35', justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 17, marginLeft: 30, marginRight: 30 }}>
+                    <TouchableOpacity 
+                    onPress={() => {
+                        this.props.parent.setLogin(true);
+                    }}
+                    style={{ backgroundColor: '#ab2c35', justifyContent: 'center', alignItems: 'center', padding: 10, borderRadius: 17, marginLeft: 30, marginRight: 30 }}>
                         <Text style={{ color: 'white' }}>Đăng nhập</Text>
                     </TouchableOpacity>
                 </View>

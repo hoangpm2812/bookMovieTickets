@@ -1,7 +1,9 @@
-import React, { Component } from 'react'
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
-import MovieDetails from '../components/MovieDetails'
-import {Actions} from 'react-native-router-flux'
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import MovieDetails from '../components/MovieDetails';
+import { Actions } from 'react-native-router-flux';
+import IconMatrial from 'react-native-vector-icons/MaterialCommunityIcons';
+import IconAnt from 'react-native-vector-icons/AntDesign';
 
 const bgChoose = '#dcad63';
 const priceA = 100000, priceD = 150000, priceG = 180000;
@@ -254,27 +256,73 @@ class BookChairsContainer extends Component {
                 </View>
 
               </View>
-              <View style={{ flex: 1, backgroundColor: 'green', marginTop: 70 }}>
+              <View style={{ flex: 1, marginTop: 70, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{}}>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="close-box" size={24} color="#dddcd1" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>Đã đặt</Text>
+                  </View>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color={bgChoose} />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>Đang chọn</Text>
+                  </View>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color="#2d3e84" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>4DX</Text>
+                  </View>
+                </View>
 
+                <View style={{ paddingLeft: 25 }}>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color="#9c8a7c" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>Thường</Text>
+                  </View>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color="#7d3140" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>VIP</Text>
+                  </View>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color="#622a7d" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>Ghế đôi</Text>
+                  </View>
+                </View>
+
+                <View style={{ paddingLeft: 25 }}>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color="#d8226c" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>Sweetbox</Text>
+                  </View>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color="#368240" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>Khuyết tật</Text>
+                  </View>
+                  <View style={{ flexDirection: 'row' }}>
+                    <IconMatrial name="square" size={23} color="#90a6d0" />
+                    <Text style={{ paddingLeft: 5, color: '#75706c' }}>Premium</Text>
+                  </View>
+                </View>
               </View>
             </ScrollView>
           </ScrollView>
         </View>
-        <View style={{ flex: 1.5, backgroundColor: 'white', flexDirection: 'row' }}>
+        <View style={{ height: 83, backgroundColor: 'white', flexDirection: 'row', paddingLeft: 10 }}>
           <View style={{ flex: 3 }}>
-            <View><Text>THE ADVENGERS</Text></View>
-            <View>
-              <Text>{this.state.totalMoney} đ   <Text>{this.state.totalChairs} ghế</Text></Text>
-
+            <View><Text style={{fontSize: 17, fontWeight: 'bold', color: 'black'}}>THE ADVENGERS</Text></View>
+            <View><Text style={{fontSize: 15, color: 'gray'}}>2D Phụ Đề Việt</Text></View>
+            <View style={{paddingTop: 8}}>
+              <Text style={{color: 'black', fontSize: 17}}>{this.state.totalMoney} đ   <Text>{this.state.totalChairs} ghế</Text></Text>
             </View>
           </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <TouchableOpacity style={{ backgroundColor: '#dcad63', paddingVertical: 5, paddingHorizontal: 10, borderRadius: 15 }}
-              onPress={() => { 
+              onPress={() => {
                 if (this.state.totalChairs == 0) {
-                  alert ("Vui lòng chọn ít nhất 1 ghế");
+                  Alert.alert(
+                    'Thông báo',
+                    'Vui lòng chọn ít nhất 1 ghế'
+                  )
                 } else {
-                  
+                  Actions.payment();
                 }
               }}>
               <Text style={{ color: 'black' }}>Đặt vé</Text>
